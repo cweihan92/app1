@@ -29,7 +29,7 @@ class App extends Component {
         <br></br><Img1 />
         <br></br><Img2 />
         <Img2 scr1="https://www.w3schools.com/html/img_girl.jpg" title="Girls"></Img2>
-        <Img2 scr1="https://www.w3schools.com/html/img_chania.jpg" title="lorong"></Img2>
+        <Img2 scr1="https://www.w3schools.com/html/img_chania.jpg" title="Lorong"></Img2>
 
         </p1>
       </div>
