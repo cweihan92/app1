@@ -5,7 +5,7 @@ import './App.css';
 const Hello = () => <h2>Hello World</h2>
 const Img1 = () => <img src="https://www.w3schools.com/html/pic_trulli.jpg" title="Italian Trulli"></img>
 
-//functional component, stateless component
+//functional component, stateless component (Image)
 const Img2 = (props) => {
   let {scr1, title} = props;
   scr1 = scr1 || "https://www.w3schools.com/html/pic_trulli.jpg";
@@ -14,6 +14,36 @@ const Img2 = (props) => {
     <img src={scr1} title={title} width="500" height="333" />
   )
 }
+//functional component, stateless component (Timer)
+class Timer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { seconds: 0 };
+  }
+
+  tick() {
+    this.setState(state => ({
+      seconds: state.seconds + 1
+    }));
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  render() {
+    return (
+      <div>
+        Seconds: {this.state.seconds}
+      </div>
+    );
+  }
+}
+
 class App extends Component {
 
   render() {
@@ -25,12 +55,11 @@ class App extends Component {
           <Hello />
         </header>
         <p1 className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <Timer />
         <br></br><Img1 />
         <br></br><Img2 />
         <Img2 scr1="https://www.w3schools.com/html/img_girl.jpg" title="Girls"></Img2>
         <Img2 scr1="https://www.w3schools.com/html/img_chania.jpg" title="Lorong"></Img2>
-
         </p1>
       </div>
     );
